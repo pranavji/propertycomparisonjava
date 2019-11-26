@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Property Utility for Java </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" th:href="@{'/'}"> Property Utility for Java. </a>
+</nav>
+
+<main role="main" class="container" id="maincontainer">
+
+    <div class="row">
+        <row class="col-md-12 " >
+            <row class="inputbox" id="dsrc1">
+
+                <div id="accordionx">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapseROne">
+                                View Source Files
+                            </a>
+                        </div>
+                        <div id="collapseROne" class="collapse" data-parent="#accordionx">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="src1">Property File 1:</label>
+                                            <textarea style="white-space: pre;padding-left: 35px;padding-top: 10px;"  class="form-control" rows="12" id="src1" readonly="true" name="src1">[[${dataresult.propertyFile1}]]</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="src1">Property File 2:</label>
+                                            <textarea  style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="12" id="src2" readonly="true" name="src2">[[${dataresult.propertyFile2}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row" stlye="text-align:center"><div class="col-md-12"><h2>Comparison Results</h2></div></div>
+
+
+                <div class="row">
+                <div class="col-md-12">
+                    <div id="accordion">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                    Comparison Result (Propery File 1 - Propery File 2 )
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="src1">[[${dataresult.resultMessage1}]]</label>
+                                        <textarea style="white-space: pre;padding-left: 35px;padding-top: 10px;"  class="form-control" rows="6" id="result12" readonly="true" name="src1">[[${dataresult.differenceF1F2}]]</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                    Comparison Result (Propery File 2 - Propery File 1 )
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="src1">[[${dataresult.resultMessage2}]]</label>
+                                        <textarea style="white-space: pre;padding-left: 35px;padding-top: 10px;"  class="form-control" rows="6" id="result21" readonly="true" name="src1">[[${dataresult.differenceF2F1}]]</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                   Difference in content - [[${dataresult.resultMessage3}]]
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="row">
+                                <div class="col-md-6">
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <label for="src1">Content in Property 1</label>
+                                        <textarea  style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="6" id="r1" readonly="true" name="src1">[[${dataresult.differenceContentF1}]]</textarea>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="src1">Content in Property 1</label>
+                                        <textarea style="white-space: pre;padding-left: 35px;padding-top: 10px;"  class="form-control" rows="6" id="r2" readonly="true" name="src1">[[${dataresult.differenceContentF2}]]</textarea>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" style="padding-left:20px">
+                                        Sticky Scroll <input value="Sticky Scroll" checked="true" type="checkbox" onchange="toggle(this)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                </div>
+
+                <br>
+
+                    <a th:href="@{'/'}"   class="btn btn-primary">Back</a>
+            </row>
+
+        </row>
+
+
+
+    </div>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
+
+<script>
+    var sticky = true;
+    function toggle(element)
+    {
+    sticky=(element.checked);
+    }
+    var sticky = true;
+    var s1 = document.getElementById('r1');
+    var s2 = document.getElementById('r2');
+
+    function select_scroll_1(e) { if(sticky)s2.scrollTop = s1.scrollTop; }
+    function select_scroll_2(e) { if(sticky)s1.scrollTop = s2.scrollTop; }
+
+    s1.addEventListener('scroll', select_scroll_1, false);
+    s2.addEventListener('scroll', select_scroll_2, false);
+</script>
