@@ -7,15 +7,19 @@
     <title> Property Utility for Java  </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
-
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" th:href="@{'/'}"> Property Utility for Java. </a>
+    <a class="navbar-brand" th:href="@{'/'}"> Property Utility for Java </a>
+    <ul class="nav navbar-nav navbar-right  ml-auto">
+        <li><a  class="btn btn-primary" style="color:white" onclick="window.history.back();"><span class="glyphicon glyphicon-log-in"></span>&lt;&lt;Go Back</a></li>
+    </ul>
 </nav>
 
 <main role="main" class="container" id="maincontainer">
@@ -39,12 +43,15 @@
                                         <div class="form-group">
                                             <label for="src1">Property File 1:</label>
                                             <textarea style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="12" id="src1" readonly="true" name="src1">[[${dataresult.propertyFile1}]]</textarea>
+                                            <button onclick="copyContent('src1',true)" class="cbtn"><i class="fa fa-clone" style="color:lightgreen" aria-hidden="true"></i>Copy to Clipboard</button> <button class="cbtn" onclick="copyContent('src1',false)"><i class="fa fa-select"></i><i class="fa fa-address-book"></i>Select All</button>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="src1">Property File 2:</label>
                                             <textarea  style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="12" id="src2" readonly="true" name="src2">[[${dataresult.propertyFile2}]]</textarea>
+                                            <button onclick="copyContent('src2',true)" class="cbtn"><i class="fa fa-clone" style="color:lightgreen" aria-hidden="true"></i>Copy to Clipboard</button> <button class="cbtn" onclick="copyContent('src2',false)"><i class="fa fa-select"></i><i class="fa fa-address-book"></i>Select All</button>
                                         </div>
                                     </div>
                                 </div>
@@ -72,6 +79,7 @@
                                         <div class="form-group">
                                             <label for="src1" id="mergeresult">[[${dataresult.resultMessage}]] </label>
                                             <textarea  style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="8" id="result12" readonly="true" name="src1" th:field="*{dataresult.mergeResult}">{$dataresult.mergeResult}</textarea>
+                                            <button onclick="copyContent('result12',true)" class="cbtn"><i class="fa fa-clone" style="color:lightgreen" aria-hidden="true"></i>Copy to Clipboard</button> <button class="cbtn" onclick="copyContent('result12',false)"><i class="fa fa-select"></i><i class="fa fa-address-book"></i>Select All</button>
                                         </div>
                                     </div>
                                 </div>
@@ -88,9 +96,6 @@
 
                 </div>
 
-                <br>
-
-                <a th:href="@{'/'}"   class="btn btn-primary">Back</a>
             </row>
 
         </row>
