@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Property Utility for Java </title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/js/main.js}"></script>
+
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"> Property Utility for Java - OPSYN</a>
+</nav>
+
+<main role="main" class="container" id="maincontainer">
+
+    <div class="row">
+        <div class="col-md-12 " >
+            <div class="inputbox" id="dsrc1">
+                <form method="post" action="process">
+                    <div class="form-group">
+                        <label for="src1">Property File 1:</label>
+                        <textarea required="true" style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="7" id="src1" name="src1"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="src1">Property File 2:</label>
+                        <textarea required="true" style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="7" id="src2" name="src2"></textarea>
+                    </div>
+
+                    <button type="submit" name="submit" value="compare" class="btn btn-primary">Compare</button>
+                    <button type="submit" name="submit" value="merge"  class="btn btn-warning">Merge</button>
+
+                </form>
+            </div>
+
+            <ol>
+                <li th:each="task : ${tasks}" th:text="${task}"></li>
+            </ol>
+        </div>
+
+    </div>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
