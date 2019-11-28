@@ -1,0 +1,28 @@
+#maincontainer
+{
+margin-top:5%
+}
+
+textarea{
+white-space: nowrap;
+background: url(http://i.imgur.com/2cOaJ.png);
+background-attachment: local;
+background-repeat: no-repeat;
+padding-left: 35px;
+padding-top: 10px;
+    border-color:#ccc;
+}
+
+.cbtn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
