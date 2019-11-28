@@ -14,12 +14,12 @@ public class TestPropertyUtil {
     @Test
     public void testCompare() {
         String prop1 =
-                "title\t = \tDigital Document and Filing System (DDFS)\tNumérique de documents et système de classement (DDFS)\r\n" +
+                "title\t = \tDigital Document 'and' Filing System (DDFS)\tNumérique de documents et système de classement (DDFS)\r\n" +
                         "greeting\t = \tGreetings, it is now\tBonjour, il est maintenant\r\n" +
                         "common.ddfsTitle\t = \tDigital Document Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n" +
                         "common.status.active\t = \tActive\tactif";
         String prop2 =
-                "common.ddfsTitle\t = \tDigital govind Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n" +
+                "common.ddfsTitle\t = \tDigital \"govind\" Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n" +
                         "common.status.active\t = \tActive\tactif\r\n" +
                         "common.designation\t = \tDesignation\tLa désignation\r\n" +
                         "common.mail\t = \tMail\tCourrier\r\n" +
@@ -33,18 +33,18 @@ public class TestPropertyUtil {
         }
 
         assertNotNull(result);
-        assertEquals(result.getResultMessage1(), "2 properties found in Property File 1 that is not in Property File 2 ");
-        assertEquals(result.getResultMessage2(), "3 properties found in Property File 2 that is not in Property File 1 ");
-        assertEquals(result.getResultMessage3(), "1 properties have difference in content ");
-        assertEquals(result.getDifferenceF1F2(), "title  =  Digital Document and Filing System (DDFS)\tNumérique de documents et système de classement (DDFS)\r\n" +
-                "greeting  =  Greetings, it is now\tBonjour, il est maintenant\r\n");
-        assertEquals(result.getDifferenceF2F1(), "common.mail  =  Mail\tCourrier\r\n" +
+        assertEquals( "2 properties found in Property File 1 that is not in Property File 2 ",result.getResultMessage1());
+        assertEquals( "3 properties found in Property File 2 that is not in Property File 1 ",result.getResultMessage2());
+        assertEquals( "1 properties have difference in content ",result.getResultMessage3());
+        assertEquals("title  =  Digital Document \\u2019and\\u2019 Filing System (DDFS)\tNumérique de documents et système de classement (DDFS)\r\n" +
+                "greeting  =  Greetings, it is now\tBonjour, il est maintenant\r\n",result.getDifferenceF1F2());
+        assertEquals( "common.mail  =  Mail\tCourrier\r\n" +
                 "common.sex.female  =  Female\tFemme\r\n" +
-                "common.designation  =  Designation\tLa désignation\r\n");
-        assertEquals(result.getDifferenceContentF1(), "common.ddfsTitle  =  Digital Document Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n");
-        assertEquals(result.getDifferenceContentF2(), "common.ddfsTitle  =  Digital govind Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n");
-        assertEquals(prop1, result.getPropertyFile1());
-        assertEquals(prop2, result.getPropertyFile2());
+                "common.designation  =  Designation\tLa désignation\r\n",result.getDifferenceF2F1());
+        assertEquals( "common.ddfsTitle  =  Digital Document Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n" , result.getDifferenceContentF1());
+        assertEquals( "common.ddfsTitle  =  Digital \\u201Cgovind\\u201C Filing System (DDFS)\tDépôt du document numérique Système (DDFS)\r\n", result.getDifferenceContentF2());
+        assertEquals(result.getPropertyFile1(), prop1 );
+        assertEquals(result.getPropertyFile2(),prop2);
     }
 
     @Test
