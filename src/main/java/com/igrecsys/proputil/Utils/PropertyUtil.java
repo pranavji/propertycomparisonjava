@@ -86,8 +86,8 @@ public class PropertyUtil {
                 String[] tokens = line.split("=");
                 if (tokens.length == 2) {
                     file1.put(tokens[0].trim(), tokens[1]
-                            .replaceAll("\"", "“")
-                            .replaceAll("'", "`")
+                            .replaceAll("\"", "\\\\u201C")
+                            .replaceAll("'", "\\\\u2019")
                             .trim());
 
                 } else {
@@ -110,8 +110,8 @@ public class PropertyUtil {
                 String[] tokens = line.split("=");
                 if (tokens.length == 2) {
                     file2.put(tokens[0].trim(), tokens[1]
-                            .replaceAll("\"", "“")
-                            .replaceAll("'", "`")
+                            .replaceAll("\"", "\\\\u201C")
+                            .replaceAll("'", "\\\\u2019")
                             .trim());
 
                 } else {
@@ -155,9 +155,9 @@ public class PropertyUtil {
     }
 
     private static String getFormattedProperty(String p, String k) {
-        return p + "  =  " + k.
-                replaceAll("\"", "“")
-                .replaceAll("'", "`")
+        return p + "  =  " + k
+              .replaceAll("\"", "\\\\u201C")
+                .replaceAll("'", "\\\\u2019")
                 .trim() + "\r\n";
     }
 }
