@@ -34,4 +34,18 @@ public class DtoCompareResult {
 
     @Getter @Setter
     private String resultMessage3;
+
+    @Getter
+    @Setter
+    private String outputFileNameF1F2;
+
+    @Getter
+    @Setter
+    private String outputFileNameF2F1;
+
+    @Getter
+    @Setter
+    private String outputFileNameCompare;
+
+
 }

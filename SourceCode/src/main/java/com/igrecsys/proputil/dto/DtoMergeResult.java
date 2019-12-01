@@ -22,4 +22,8 @@ public class DtoMergeResult {
     @Getter @Setter
     private String resultMessage;
 
+    @Getter
+    @Setter
+    private String outputFileName;
+
 }
