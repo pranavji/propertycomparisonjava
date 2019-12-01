@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <title> Property Utility for Java </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+
+    <script th:src="@{/js/main.js}"></script>
+
+    <link rel="stylesheet"
+          th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark  fixed-top" style="background-color: #003d7d;">
+    <a class="navbar-brand" th:href="@{'/'}"> Property Utility for Java - OSPYN </a>
+    <ul class="nav navbar-nav navbar-right  ml-auto">
+        <li><a class="btn btn-primary" onclick="window.history.back();" style="color:white"><span
+                class="glyphicon glyphicon-log-in"></span>&lt;&lt;Go Back</a></li>
+    </ul>
+</nav>
+
+<main class="container" id="maincontainer" role="main">
+
+    <div class="row">
+        <row class="col-md-12 ">
+            <row class="inputbox" id="dsrc1">
+
+
+                <div class="row" stlye="text-align:center">
+                    <div class="col-md-12"><h2>Comparison Results</h2></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="accordion">
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        Comparison Result (Propery File 1 - Propery File 2 )
+                                    </a>
+                                </div>
+                                <div class="collapse show" data-parent="#accordion" id="collapseOne">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>[[${dataresult.resultMessage1}]]</label>
+                                            <br><br> <a class="btn btn-success form-control"
+                                                        download="OutputF1F2.properties"
+                                                        th:href="@{|/products/download?id=${dataresult.outputFileNameF1F2}|}"><span>Download F1 - F2</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                        Comparison Result (Propery File 2 - Propery File 1 )
+                                    </a>
+                                </div>
+                                <div class="collapse" data-parent="#accordion" id="collapseTwo">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>[[${dataresult.resultMessage2}]]</label><br>
+                                            <br><br> <a class="btn btn-success form-control"
+                                                        download="OutputF2F1.properties"
+                                                        th:href="@{|/products/download?id=${dataresult.outputFileNameF2F1}|}"><span>Download F2 - F1</span></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                        Difference in content - [[${dataresult.resultMessage3}]]
+                                    </a>
+                                </div>
+                                <div class="collapse" data-parent="#accordion" id="collapseThree">
+
+                                    <div class="card-body">
+
+                                        <div class="form-group">
+                                            <label>[[${dataresult.resultMessage3}]]</label>
+                                            <br><br><a class="btn btn-success form-control "
+                                                       download="CompareResult.properties"
+                                                       th:href="@{|/products/download?id=${dataresult.outputFileNameCompare}|}"><span>Download Compare Result</span></a>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </row>
+
+        </row>
+
+
+    </div>
+
+</main>
+<!-- /.container -->
+
+<script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+</body>
+</html>
+
+<script>
+    var sticky = true;
+    function toggle(element)
+    {
+    sticky=(element.checked);
+    }
+    var sticky = true;
+    var s1 = document.getElementById('r1');
+    var s2 = document.getElementById('r2');
+
+    function select_scroll_1(e) { if(sticky)s2.scrollTop = s1.scrollTop; }
+    function select_scroll_2(e) { if(sticky)s1.scrollTop = s2.scrollTop; }
+
+    s1.addEventListener('scroll', select_scroll_1, false);
+    s2.addEventListener('scroll', select_scroll_2, false);
+
+</script>

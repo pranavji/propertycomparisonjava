@@ -15,35 +15,42 @@
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#"> Property Utility for Java - OPSYN</a>
+<nav class="navbar navbar-expand-md navbar-dark  fixed-top" style="background-color: #003d7d;">
+    <a class="navbar-brand" href="#"> Property Utility for Java - OSPYN</a>
 </nav>
 
 <main role="main" class="container" id="maincontainer">
 
     <div class="row">
-        <div class="col-md-12 " >
-            <div class="inputbox" id="dsrc1">
-                <form method="post" action="process">
-                    <div class="form-group">
-                        <label for="src1">Property File 1:</label>
-                        <textarea required="true" style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="7" id="src1" name="src1"></textarea>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="src1">Property File 2:</label>
-                        <textarea required="true" style="white-space: pre;padding-left: 35px;padding-top: 10px;" class="form-control" rows="7" id="src2" name="src2"></textarea>
-                    </div>
+        <div class="col-md-6 offset-3">
+            <h3>Welcome to property comparison utility </h3>
+            <br>
+            <p>Please use Upload Properties for files comparing or merging properties
+                with more than 1000 lines each.
+                Since some browser only allows onlt 2000 lines in text area.
+                <br><br>All output are in UTF-8 format and are parsable by javascript since the double quotes and single
+                quotes are replaced with left equal values.
+            </p>
 
-                    <button type="submit" name="submit" value="compare" class="btn btn-primary">Compare</button>
-                    <button type="submit" name="submit" value="merge"  class="btn btn-warning">Merge</button>
 
-                </form>
-            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
 
-            <ol>
-                <li th:each="task : ${tasks}" th:text="${task}"></li>
-            </ol>
+
+        <div class="col-md-6 ">
+
+            <a class="btn btn-primary" href="/upload" style="float:right">Upload Properties</a>
+
+
+        </div>
+
+        <div class="col-md-6 ">
+
+            <a class="btn btn-primary" href="/clipboard">Paste Properties</a>
+
+
         </div>
 
     </div>
